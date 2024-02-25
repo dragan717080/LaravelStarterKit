@@ -6,5 +6,5 @@ namespace App\Interfaces\Airport;
 
 interface UpdateInterface
 {
-    public function update(string $id, string $name, string $city, string $country);
+    public function update(string $id, ?string $name, ?string $city, ?string $country);
 }

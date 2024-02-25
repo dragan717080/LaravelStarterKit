@@ -30,6 +30,26 @@ class AirportRepository
     )
     {
         $airport = $this->model->find($id);
+
+        if (!$airport) {
+            return null;
+        }
+
+        if ($name !== null) {
+            $airport->name = $name;
+        }
+
+        if ($city !== null) {
+            $airport->city = $city;
+        }
+
+        if ($country !== null) {
+            $airport->country = $country;
+        }
+
+        $airport->save();
+
+        return $airport;
     }
 
     public function create(
@@ -38,6 +58,14 @@ class AirportRepository
         string $country
     )
     {
+        $airport = new Airport();
 
+        $airport->name = $name;
+        $airport->city = $city;
+        $airport->country = $country;
+
+        $airport->save();
+
+        return $airport;
     }
 }
